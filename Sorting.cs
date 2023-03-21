@@ -11,34 +11,36 @@ namespace AlgorythmsAndComplexity
         static int Steps = 0;
         public Sorting()
         {
-            SortArray(Roads.Road1_256, nameof(Roads.Road1_256));
-            SortArray(Roads.Road1_2048, nameof(Roads.Road1_2048));
-            SortArray(Roads.Road2_256, nameof(Roads.Road2_256));
-            SortArray(Roads.Road2_2048, nameof(Roads.Road2_2048));
-            SortArray(Roads.Road3_256, nameof(Roads.Road3_256));
-            SortArray(Roads.Road3_2048, nameof(Roads.Road3_2048));
+            SortArray(Roads.Road1_256);
+            SortArray(Roads.Road1_2048);
+            SortArray(Roads.Road2_256);
+            SortArray(Roads.Road2_2048);
+            SortArray(Roads.Road3_256);
+            SortArray(Roads.Road3_2048);
+
         }
-        public void SortArray(int[] array, string arrayName)
+        public void SortArray(Dictionary<string, int[]> Roads)
         {
-            int n = array.Length;
+            int n = Roads["Unsorted"].Length;
+            int[] unsortedArray = Roads["Unsorted"];
+            
             for (int i = 1; i < n; i++)
             {
-                int key = array[i];
+                int key = unsortedArray[i];
                 int j = i - 1;
 
-                while (j >= 0 && array[j] > key)
+                while (j >= 0 && unsortedArray[j] > key)
                 {
-                    array[j + 1] = array[j];
+                    unsortedArray[j + 1] = unsortedArray[j];
                     j = j - 1;
                     Steps++;
                 }
 
-                array[j + 1] = key;
+                unsortedArray[j + 1] = key;
                 Steps++;
             }
-
-
-            Console.WriteLine($"Steps taken to sort the {arrayName} array using Insertion sort: {Steps}");
+            Roads["Ascending"] = unsortedArray;
+            Console.WriteLine($"Steps taken to sort the Road{Roads["Identifier"][0]}-{Roads["Identifier"][1]} array using Insertion sort: {Steps}");
             Steps = 0;
         }
 
