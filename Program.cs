@@ -10,8 +10,7 @@ namespace AlgorythmsAndComplexity
     {
         static void Main(string[] args)
         {
-            Roads roads = new Roads();
-            Sorting sorting = new Sorting();
+            Runtime runtime = new Runtime();
         }
 }
 }

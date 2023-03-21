@@ -17,13 +17,22 @@ namespace AlgorythmsAndComplexity
             SortArray(Roads.Road2_2048);
             SortArray(Roads.Road3_256);
             SortArray(Roads.Road3_2048);
-
         }
-        public void SortArray(Dictionary<string, int[]> Roads)
+        public void OutputElements(int[] roads,int[] identifier, int number)
         {
-            int n = Roads["Unsorted"].Length;
-            int[] unsortedArray = Roads["Unsorted"];
-            
+            System.Console.WriteLine($"\nDisplaying every {number}th entry in Road_{identifier[0]}_{identifier[1]} array \n--//////////////////////--");
+            for (int i = 0; i < roads.Length; i += 10)
+                {
+                    System.Console.WriteLine($"{i / number,3}: {roads[i]}");
+                }
+            System.Console.WriteLine("--//////////////////////--");
+        }
+
+        public void SortArray(Dictionary<string, int[]> roads)
+        {
+            int n = roads["Unsorted"].Length;
+            int[] unsortedArray = roads["Unsorted"];
+
             for (int i = 1; i < n; i++)
             {
                 int key = unsortedArray[i];
@@ -39,8 +48,9 @@ namespace AlgorythmsAndComplexity
                 unsortedArray[j + 1] = key;
                 Steps++;
             }
-            Roads["Ascending"] = unsortedArray;
-            Console.WriteLine($"Steps taken to sort the Road{Roads["Identifier"][0]}-{Roads["Identifier"][1]} array using Insertion sort: {Steps}");
+            roads["Ascending"] = unsortedArray;
+            roads["Descending"] = unsortedArray.Reverse().ToArray();
+            Console.WriteLine($"Steps taken to sort the Road{roads["Identifier"][0]}-{roads["Identifier"][1]} array using Insertion sort: {Steps}");
             Steps = 0;
         }
 

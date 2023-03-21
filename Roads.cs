@@ -13,63 +13,57 @@ namespace AlgorythmsAndComplexity
         static private int[] Road2_2048_Unsorted = new int[2048];
         static private int[] Road3_256_Unsorted = new int[256];
         static private int[] Road3_2048_Unsorted = new int[2048];
-
-        static private int[] Road1_256_Ascending = new int[256];
-        static private int[] Road1_2048_Ascending = new int[2048];
-        static private int[] Road2_256_Ascending = new int[256];
-        static private int[] Road2_2048_Ascending = new int[2048];
-        static private int[] Road3_256_Ascending = new int[256];
-        static private int[] Road3_2048_Ascending = new int[2048];
-
-
-        static private int[] Road1_256_Descending = new int[256];
-        static private int[] Road1_2048_Descending = new int[2048];
-        static private int[] Road2_256_Descending = new int[256];
-        static private int[] Road2_2048_Descending = new int[2048];
-        static private int[] Road3_256_Descending = new int[256];
-        static private int[] Road3_2048_Descending = new int[2048];
         
         static public Dictionary<string, int[]> Road1_256 = new Dictionary<string, int[]>()
         {
             {"Unsorted", Road1_256_Unsorted},
-            {"Ascending", Road1_256_Ascending},
-            {"Descending", Road1_256_Descending},
+            {"Ascending", new int[256]},
+            {"Descending", new int[256]},
             {"Identifier", new int[]{1, 256}}
         };
         static public Dictionary<string, int[]> Road1_2048 = new Dictionary<string, int[]>()
         {
             {"Unsorted", Road1_2048_Unsorted},
-            {"Ascending", Road1_2048_Ascending},
-            {"Descending", Road1_2048_Descending},
+            {"Ascending", new int[2048]},
+            {"Descending", new int[2048]},
             {"Identifier", new int[]{1, 2048}}
         };
         static public Dictionary<string, int[]> Road2_256 = new Dictionary<string, int[]>()
         {
             {"Unsorted", Road2_256_Unsorted},
-            {"Ascending", Road2_256_Ascending},
-            {"Descending", Road2_256_Descending},
+            {"Ascending", new int[256]},
+            {"Descending", new int[256]},
             {"Identifier", new int[]{2, 256}}
         };
         static public Dictionary<string, int[]> Road2_2048 = new Dictionary<string, int[]>()
         {
-            {"Unsorted", Road2_2048_Unsorted},
-            {"Ascending", Road2_2048_Ascending},
-            {"Descending", Road2_2048_Descending},
+            {"Unsorted", Road2_2048_Unsorted},       
+            {"Ascending", new int[2048]},
+            {"Descending", new int[2048]},
             {"Identifier", new int[]{2, 2048}}
         };
         static public Dictionary<string, int[]> Road3_256 = new Dictionary<string, int[]>()
         {
             {"Unsorted", Road3_256_Unsorted},
-            {"Ascending", Road3_256_Ascending},
-            {"Descending", Road3_256_Descending},
+            {"Ascending", new int[256]},
+            {"Descending", new int[256]},            
             {"Identifier", new int[]{3, 256}}
         };
         static public Dictionary<string, int[]> Road3_2048 = new Dictionary<string, int[]>()
         {
             {"Unsorted", Road3_2048_Unsorted},
-            {"Ascending", Road3_2048_Ascending},
-            {"Descending", Road3_2048_Descending},
+            {"Ascending", new int[2048]},
+            {"Descending", new int[2048]},
             {"Identifier", new int[]{3, 2048}}
+
+        };
+        static public Dictionary<string, int[]> Road4_512 = new Dictionary<string, int[]>()
+        {
+            {"Unsorted", Road1_256_Unsorted.Concat(Road3_256_Unsorted).ToArray()},
+            {"Ascending", new int[2048]},
+            {"Descending", new int[2048]},
+            {"Identifier", new int[]{3, 2048}}
+
         };
         public Roads()
         {
