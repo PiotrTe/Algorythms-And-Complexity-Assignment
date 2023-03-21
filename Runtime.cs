@@ -14,11 +14,11 @@ namespace AlgorythmsAndComplexity
             Sorting sorting = new Sorting();
             while (true)
             {
-                int userInput = GetIntInput("Choose to sort one of the following files:\n[1] Road1-256\n[2] Road1-2048\n[3] Road2-256\n[4] Road2-2048\n[5] Road3-256\n[6] Road3-2048\n[7] Road4-512\n[0] Exit",1,6);
+                int userInput = GetIntInput("Choose to sort one of the following files:\n[1] Road1-256\n[2] Road1-2048\n[3] Road2-256\n[4] Road2-2048\n[5] Road3-256\n[6] Road3-2048\n[7] Road4-512\n[0] Exit",1,7);
                 if (userInput == 1)
                 {
                     sorting.SortArray(Roads.Road1_256, GetIntInput("Choose one of the sorting methods:\n[1] Insertion Sort\n[2] Bubble sort\n[3] Selection Sort\n[4] Merge Sort",1,4));
-                    sorting.OutputElements(Roads.Road1_256["Unsorted"],Roads.Road1_256["Identifier"], 10);
+                    sorting.OutputElements(Roads.Road1_256["Ascending"],Roads.Road1_256["Identifier"], 10);
                 }
                 else if (userInput == 2)
                 {
