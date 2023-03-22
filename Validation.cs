@@ -9,7 +9,7 @@ namespace AlgorythmsAndComplexity
     // A class for validating user inputs
     internal abstract class Validation
     {
-        // A method for validating if an input is an integer or not                       
+        // A method for validating if an input is an integer or not
         public static int ValidateInt(string input)
         {
             int number;

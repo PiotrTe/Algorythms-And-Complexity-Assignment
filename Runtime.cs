@@ -12,49 +12,31 @@ namespace AlgorythmsAndComplexity
         {
             Roads roads = new Roads();
             Sorting sorting = new Sorting();
+            Dictionary<string, int[]> workingFile = null;
             while (true)
             {
-                int userInput = GetIntInput("Choose to sort one of the following files:\n[1] Road1-256\n[2] Road1-2048\n[3] Road2-256\n[4] Road2-2048\n[5] Road3-256\n[6] Road3-2048\n[7] Road4-512\n[0] Exit",1,7);
+                int userInput = GetIntInput("Choose to sort one of the following files:\n[1] Road1-256\n[2] Road1-2048\n[3] Road2-256\n[4] Road2-2048\n[5] Road3-256\n[6] Road3-2048\n[7] Road4-512\n[8] Road4-4096\n[0] Exit",0,8);
+                if (userInput == 1) workingFile = Roads.Road1_256;
+                else if (userInput == 2) workingFile = Roads.Road1_2048;
+                else if (userInput == 3) workingFile = Roads.Road2_256;
+                else if (userInput == 4) workingFile = Roads.Road2_2048;
+                else if (userInput == 5) workingFile = Roads.Road3_256;
+                else if (userInput == 6) workingFile = Roads.Road3_2048; 
+                else if (userInput == 7) workingFile = Roads.Road4_512; 
+                else if (userInput == 8) workingFile = Roads.Road4_4096;
+                else if (userInput == 0) break;
+
+                sorting.SortArray(workingFile, GetIntInput("Choose one of the sorting methods:\n[1] Insertion Sort\n[2] Bubble sort\n[3] Quick Sort\n[4] Merge Sort",1,4));
+                userInput = GetIntInput("Show Asceding [1] or Descending [2] order?",0,8);
                 if (userInput == 1)
                 {
-                    sorting.SortArray(Roads.Road1_256, GetIntInput("Choose one of the sorting methods:\n[1] Insertion Sort\n[2] Bubble sort\n[3] Selection Sort\n[4] Merge Sort",1,4));
-                    sorting.OutputElements(Roads.Road1_256["Ascending"],Roads.Road1_256["Identifier"], 10);
+                    sorting.OutputElements(workingFile["Ascending"],workingFile["Identifier"]);
                 }
                 else if (userInput == 2)
                 {
-                    sorting.SortArray(Roads.Road1_2048, GetIntInput("Choose one of the sorting methods:\n[1] Insertion Sort\n[2] Bubble sort\n[3] Selection Sort\n[4] Merge Sort",1,4));
-                    sorting.OutputElements(Roads.Road1_2048["Ascending"],Roads.Road1_2048["Identifier"], 50);
+                    sorting.OutputElements(workingFile["Descending"],workingFile["Identifier"]);
                 }
-                else if (userInput == 3)
-                {
-                    sorting.SortArray(Roads.Road2_256, GetIntInput("Choose one of the sorting methods:\n[1] Insertion Sort\n[2] Bubble sort\n[3] Selection Sort\n[4] Merge Sort",1,4));
-                    sorting.OutputElements(Roads.Road2_256["Ascending"],Roads.Road2_256["Identifier"], 10);
-                }
-                else if (userInput == 4)
-                {
-                    sorting.SortArray(Roads.Road2_2048, GetIntInput("Choose one of the sorting methods:\n[1] Insertion Sort\n[2] Bubble sort\n[3] Selection Sort\n[4] Merge Sort",1,4));
-                    sorting.OutputElements(Roads.Road2_2048["Ascending"],Roads.Road2_2048["Identifier"], 50);
-                }
-                else if (userInput == 5)
-                {
-                    sorting.SortArray(Roads.Road3_256, GetIntInput("Choose one of the sorting methods:\n[1] Insertion Sort\n[2] Bubble sort\n[3] Selection Sort\n[4] Merge Sort",1,4));
-                    sorting.OutputElements(Roads.Road3_256["Ascending"],Roads.Road3_256["Identifier"], 10);
-                }
-                else if (userInput == 6)
-                {
-                    sorting.SortArray(Roads.Road3_2048, GetIntInput("Choose one of the sorting methods:\n[1] Insertion Sort\n[2] Bubble sort\n[3] Selection Sort\n[4] Merge Sort",1,4));
-                    sorting.OutputElements(Roads.Road3_2048["Ascending"],Roads.Road3_2048["Identifier"], 50);
-                }   
-                else if (userInput == 7)
-                {
-                    sorting.SortArray(Roads.Road4_512, GetIntInput("Choose one of the sorting methods:\n[1] Insertion Sort\n[2] Bubble sort\n[3] Selection Sort\n[4] Merge Sort",1,4));
-                    sorting.OutputElements(Roads.Road4_512["Ascending"],Roads.Road4_512["Identifier"], 10);
-                }   
-                else if (userInput == 0)
-                {
-                    break;
-                }
-
+                
             }
         }
     }

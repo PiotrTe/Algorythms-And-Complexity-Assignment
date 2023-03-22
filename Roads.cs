@@ -58,6 +58,15 @@ namespace AlgorythmsAndComplexity
             {"Identifier", new int[]{4, 512}}
 
         };
+
+        static public Dictionary<string, int[]> Road4_4096 = new Dictionary<string, int[]>()
+        {
+            {"Unsorted", new int[4096]},
+            {"Ascending", new int[4096]},
+            {"Descending", new int[4096]},
+            {"Identifier", new int[]{4, 4096}}
+        };
+
         public Roads()
         {
             Road1_256["Unsorted"] = CreateArray("Road_1_256.txt", 256);
@@ -67,6 +76,7 @@ namespace AlgorythmsAndComplexity
             Road3_256["Unsorted"] = CreateArray("Road_3_256.txt", 256);
             Road3_2048["Unsorted"] = CreateArray("Road_3_2048.txt", 2048);
             Road4_512["Unsorted"] = Road1_256["Unsorted"].Concat(Road3_256["Unsorted"]).ToArray();
+            Road4_4096["Unsorted"] = Road2_2048["Unsorted"].Concat(Road3_2048["Unsorted"]).ToArray();
         }
         private int[] CreateArray(string filePath, int size)
         {
