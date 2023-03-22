@@ -44,7 +44,7 @@ namespace AlgorythmsAndComplexity
                 userInput = GetIntInput("Choose one of the searching methods:\n[1] Linear Search\n[2] Binary Search",1,2);
                 if (userInput == 1)
                 {
-                    Dictionary<int, int> results = Search.LinearSearch(workingFile2,GetIntInput("Enter the number you wish to search for: ",0,workingFile2.Length));
+                    Dictionary<int, int> results = Search.LinearSearch(workingFile2,GetIntInput("Enter the number you wish to search for: ",0,1000));
                     string resultsString = "";
                     foreach (KeyValuePair<int, int> position in results)
                     {
@@ -54,7 +54,7 @@ namespace AlgorythmsAndComplexity
                 }
                 else if (userInput == 2)
                 {
-                    Dictionary<int, int> results = Search.BinarySearch(workingFile2,GetIntInput("Enter the number you wish to search for: ",0,workingFile2.Length));
+                    Dictionary<int, int> results = Search.BinarySearch(workingFile2,GetIntInput("Enter the number you wish to search for: ",0,1000));
                     System.Console.WriteLine($"\nBinary Search completed in {Search.Steps} steps");  
                     Search.Steps = 0;
                     string resultsString = "";
