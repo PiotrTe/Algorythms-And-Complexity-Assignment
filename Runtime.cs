@@ -54,12 +54,15 @@ namespace AlgorythmsAndComplexity
                 }
                 else if (userInput == 2)
                 {
-                    Dictionary<int, int> results = Search.BinarySearch(workingFile2,GetIntInput("Enter the number you wish to search for: ",0,1000));
+                    userInput = GetIntInput("Enter the number you wish to search for: ",0,1000);
+                    Dictionary<int, int> results = Search.BinarySearch(workingFile2,userInput);
                     System.Console.WriteLine($"\nBinary Search completed in {Search.Steps} steps");  
                     Search.Steps = 0;
                     string resultsString = "";
+                    if (results.First().Value != userInput) System.Console.WriteLine($"\nValue {userInput} not found... Looking for closest values");
                     foreach (KeyValuePair<int, int> position in results)
                     {
+
                         resultsString += ($"Value {position.Value} at position {position.Key}\n");
                     }
                     System.Console.WriteLine($"Values found in following positions: \n{resultsString}");

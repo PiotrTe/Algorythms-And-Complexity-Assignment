@@ -89,7 +89,6 @@ namespace AlgorythmsAndComplexity
 
             if (result.Count == 0)
             {
-                System.Console.WriteLine($"\nValue {target} not found... Looking for closest values");
                 // find closest values
                 int targetL = target - 1;
                 int targetR = target + 1;
