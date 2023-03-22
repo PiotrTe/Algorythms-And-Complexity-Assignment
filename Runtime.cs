@@ -18,7 +18,7 @@ namespace AlgorythmsAndComplexity
             while (true)
             {
                 int userInput = GetIntInput("Choose to sort one of the following files:\n[1] Road1-256\n[2] Road1-2048\n[3] Road2-256\n[4] Road2-2048\n[5] Road3-256\n[6] Road3-2048\n[7] Road4-512\n[8] Road4-4096\n[0] Exit",0,8);
-                if (userInput == 1) workingFile = Roads.Road1_256;
+                if      (userInput == 1) workingFile = Roads.Road1_256;
                 else if (userInput == 2) workingFile = Roads.Road1_2048;
                 else if (userInput == 3) workingFile = Roads.Road2_256;
                 else if (userInput == 4) workingFile = Roads.Road2_2048;
