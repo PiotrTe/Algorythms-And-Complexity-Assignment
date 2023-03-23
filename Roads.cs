@@ -7,13 +7,15 @@ namespace AlgorythmsAndComplexity
 {
     internal class Roads
     {
+        // Define dictionaries to hold various road data
         static public Dictionary<string, int[]> Road1_256 = new Dictionary<string, int[]>()
         {
-            {"Unsorted", new int[256]},
-            {"Ascending", new int[256]},
-            {"Descending", new int[256]},
-            {"Identifier", new int[]{1, 256}}
+            {"Unsorted", new int[256]},        // 256 element array for unsorted
+            {"Ascending", new int[256]},       // 256 element array for sorted in ascending order
+            {"Descending", new int[256]},      // 256 element array for sorted in descending order
+            {"Identifier", new int[]{1, 256}}  // Array to hold the road identifier and size (1, 256)
         };
+        // Simmilar dictonaries for other files
         static public Dictionary<string, int[]> Road1_2048 = new Dictionary<string, int[]>()
         {
             {"Unsorted", new int[2048]},
@@ -69,6 +71,7 @@ namespace AlgorythmsAndComplexity
 
         public Roads()
         {
+            // Initialize unsorted arrays by reading data from text files
             Road1_256["Unsorted"] = CreateArray("Road_1_256.txt", 256);
             Road1_2048["Unsorted"] = CreateArray("Road_1_2048.txt", 2048);
             Road2_256["Unsorted"] = CreateArray("Road_2_256.txt", 256);
@@ -78,6 +81,7 @@ namespace AlgorythmsAndComplexity
             Road4_512["Unsorted"] = Road1_256["Unsorted"].Concat(Road3_256["Unsorted"]).ToArray();
             Road4_4096["Unsorted"] = Road2_2048["Unsorted"].Concat(Road3_2048["Unsorted"]).ToArray();
         }
+        // Method to create an array from a given file path and size
         private int[] CreateArray(string filePath, int size)
         {
             string[] lines = File.ReadAllLines(filePath);

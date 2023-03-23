@@ -8,6 +8,9 @@ namespace AlgorythmsAndComplexity
 {
     class Runtime : Validation
     {
+        // The class constructor method initializes several objects, including the Roads, Sorting, and Search classes.
+        // It also initializes two null variables, workingFile and workingFile2.
+        // The while loop will continue to execute until the user inputs 0.
         public Runtime()
         {
             Roads roads = new Roads();
@@ -17,6 +20,8 @@ namespace AlgorythmsAndComplexity
             int[]? workingFile2 = null;
             while (true)
             {
+                // The user is prompted to select a file to sort.
+                // Depending on the user's input, the appropriate file is assigned to the workingFile variable.
                 int userInput = GetIntInput("Choose to sort one of the following files:\n[1] Road1-256\n[2] Road1-2048\n[3] Road2-256\n[4] Road2-2048\n[5] Road3-256\n[6] Road3-2048\n[7] Road4-512\n[8] Road4-4096\n[0] Exit",0,8);
                 if      (userInput == 1) workingFile = Roads.Road1_256;
                 else if (userInput == 2) workingFile = Roads.Road1_2048;
@@ -28,7 +33,13 @@ namespace AlgorythmsAndComplexity
                 else if (userInput == 8) workingFile = Roads.Road4_4096;
                 else if (userInput == 0) break;
 
+                // The user is prompted to select a sorting method.
+                // Depending on the user's input, the appropriate sorting method is called and applied to the workingFile.
                 sorting.SortArray(workingFile, GetIntInput("Choose one of the sorting methods:\n[1] Insertion Sort\n[2] Bubble sort\n[3] Quick Sort\n[4] Merge Sort",1,4));
+
+                // The user is prompted to select whether to show the sorted array in ascending or descending order.
+                // Depending on the user's input, the sorted array in the appropriate order is assigned to the workingFile2 variable.
+                // The OutputElements method is then called to display the sorted array and its corresponding identifiers.
                 userInput = GetIntInput("Show Asceding [1] or Descending [2] order?",1,2);
                 if (userInput == 1)
                 {
@@ -39,32 +50,6 @@ namespace AlgorythmsAndComplexity
                 {
                     workingFile2 = workingFile["Descending"];
                     sorting.OutputElements(workingFile["Descending"],workingFile["Identifier"]);
-                }
-                
-                userInput = GetIntInput("Choose one of the searching methods:\n[1] Linear Search\n[2] Binary Search",1,2);
-                if (userInput == 1)
-                {
-                    Dictionary<int, int> results = Search.LinearSearch(workingFile2,GetIntInput("Enter the number you wish to search for: ",0,1000));
-                    string resultsString = "";
-                    foreach (KeyValuePair<int, int> position in results)
-                    {
-                        resultsString += ($"Value {position.Value} at position {position.Key}\n");
-                    }
-                    System.Console.WriteLine($"Values found in following positions: \n{resultsString}");
-                }
-                else if (userInput == 2)
-                {
-                    userInput = GetIntInput("Enter the number you wish to search for: ",0,1000);
-                    Dictionary<int, int> results = Search.BinarySearch(workingFile2,userInput);
-                    if (results.First().Value != userInput) System.Console.WriteLine($"\nValue {userInput} not found... Looking for closest values");
-                    System.Console.WriteLine($"\nBinary Search completed in {Search.Steps} steps");  
-                    Search.Steps = 0;
-                    string resultsString = "";
-                    foreach (KeyValuePair<int, int> position in results)
-                    {
-                        resultsString += ($"Value {position.Value} at position {position.Key}\n");
-                    }
-                    System.Console.WriteLine($"Values found in following positions: \n{resultsString}");
                 }
             }
         }
