@@ -54,7 +54,6 @@ namespace AlgorythmsAndComplexity
             int right = array.Length - 1;
             while (left <= right)
             {
-                Steps++;
                 int mid = left + (right - left) / 2;
                 if (array[mid] == target)
                 {
