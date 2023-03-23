@@ -51,6 +51,33 @@ namespace AlgorythmsAndComplexity
                     workingFile2 = workingFile["Descending"];
                     sorting.OutputElements(workingFile["Descending"],workingFile["Identifier"]);
                 }
+
+                // The user is prompted to select searching method for the array they have selected
+                userInput = GetIntInput("Choose one of the searching methods:\n[1] Linear Search\n[2] Binary Search",1,2);
+                if (userInput == 1)
+                {
+                    Dictionary<int, int> results = Search.LinearSearch(workingFile2,GetIntInput("Enter the number you wish to search for: ",0,1000));
+                    string resultsString = "";
+                    foreach (KeyValuePair<int, int> position in results)
+                    {
+                        resultsString += ($"Value {position.Value} at position {position.Key}\n");
+                    }
+                    System.Console.WriteLine($"Values found in following positions: \n{resultsString}");
+                }
+                else if (userInput == 2)
+                {
+                    userInput = GetIntInput("Enter the number you wish to search for: ",0,1000);
+                    Dictionary<int, int> results = Search.BinarySearch(workingFile2,userInput);
+                    if (results.First().Value != userInput) System.Console.WriteLine($"\nValue {userInput} not found... Looking for closest values");
+                    System.Console.WriteLine($"\nBinary Search completed in {Search.Steps} steps");  
+                    Search.Steps = 0;
+                    string resultsString = "";
+                    foreach (KeyValuePair<int, int> position in results)
+                    {
+                        resultsString += ($"Value {position.Value} at position {position.Key}\n");
+                    }
+                    System.Console.WriteLine($"Values found in following positions: \n{resultsString}");
+                }
             }
         }
     }
